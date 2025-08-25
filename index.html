@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyChart Pro - 全球机场航图查看器</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 动态光线背景 -->
+    <div class="light-beam"></div>
+    <div class="light-beam"></div>
+    <div class="light-beam"></div>
+    
+    <div class="container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fas fa-plane"></i></div>
+                    <span>SkyChart Pro</span>
+                </div>
+                <div class="toggle-btn" id="sidebarToggle">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="search-box">
+                <div class="search-icon"><i class="fas fa-search"></i></div>
+                <input type="text" id="searchInput" placeholder="搜索机场四字代码或名称...">
+            </div>
+            
+            <div class="airport-list-container">
+                <ul class="airport-list" id="airportList">
+                    <!-- 机场列表将通过JS动态生成 -->
+                </ul>
+            </div>
+        </aside>
+        
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <div class="main-header">
+                <h1 class="page-title">
+                    <i class="fas fa-map"></i> 
+                    <span id="currentAirport">全球机场航图查看器</span>
+                </h1>
+                <div class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            
+            <!-- PDF 文件区域 -->
+            <section class="pdf-section fade-in">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <i class="fas fa-file-pdf"></i> 
+                        <span id="pdfSectionTitle">机场航图文件</span>
+                    </h2>
+                    <div class="section-actions">
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pdf-container" id="pdfContainer">
+                    <!-- PDF 文件卡片将通过JS动态生成 -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PDF预览模态框 -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="pdfModalTitle">航图预览</h3>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfViewer" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+                <a id="downloadPdf" class="download-btn" download>
+                    <i class="fas fa-download"></i> 下载PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
