@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SkyChart Pro - 全球机场航图查看器，提供世界各地机场的详细航图信息">
+    <meta name="keywords" content="机场航图, 航空地图, 机场信息, SkyChart Pro">
+    <meta name="author" content="SkyChart Pro Team">
     <title>SkyChart Pro - 全球机场航图查看器</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,24 +18,24 @@
     
     <div class="container">
         <!-- 侧边栏 -->
-        <aside class="sidebar">
+        <aside class="sidebar" aria-label="机场列表导航">
             <div class="sidebar-header">
                 <div class="logo">
                     <div class="logo-icon"><i class="fas fa-plane"></i></div>
                     <span>SkyChart Pro</span>
                 </div>
-                <div class="toggle-btn" id="sidebarToggle">
+                <button class="toggle-btn" id="sidebarToggle" aria-label="关闭侧边栏">
                     <i class="fas fa-times"></i>
-                </div>
+                </button>
             </div>
             
             <div class="search-box">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
-                <input type="text" id="searchInput" placeholder="搜索机场四字代码或名称...">
+                <input type="text" id="searchInput" placeholder="搜索机场四字代码或名称..." aria-label="搜索机场">
             </div>
             
             <div class="airport-list-container">
-                <ul class="airport-list" id="airportList">
+                <ul class="airport-list" id="airportList" role="list">
                     <!-- 机场列表将通过JS动态生成 -->
                 </ul>
             </div>
@@ -40,15 +43,15 @@
         
         <!-- 主内容区域 -->
         <main class="main-content">
-            <div class="main-header">
+            <header class="main-header">
                 <h1 class="page-title">
                     <i class="fas fa-map"></i> 
                     <span id="currentAirport">全球机场航图查看器</span>
                 </h1>
-                <div class="mobile-toggle" id="mobileToggle">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="打开侧边栏">
                     <i class="fas fa-bars"></i>
-                </div>
-            </div>
+                </button>
+            </header>
             
             <!-- PDF 文件区域 -->
             <section class="pdf-section fade-in">
@@ -59,13 +62,13 @@
                     </h2>
                     <div class="section-actions">
                         <div class="view-toggle">
-                            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
-                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                            <button class="view-btn active" data-view="grid" aria-label="网格视图"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" data-view="list" aria-label="列表视图"><i class="fas fa-list"></i></button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="pdf-container" id="pdfContainer">
+                <div class="pdf-container" id="pdfContainer" role="grid" aria-label="航图文件列表">
                     <!-- PDF 文件卡片将通过JS动态生成 -->
                 </div>
             </section>
@@ -73,25 +76,25 @@
     </div>
 
     <!-- PDF预览模态框 -->
-    <div class="modal" id="pdfModal">
+    <div class="modal" id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="pdfModalTitle">航图预览</h3>
-                <button class="close-btn" id="closeModal">
+                <button class="close-btn" id="closeModal" aria-label="关闭预览">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <iframe id="pdfViewer" frameborder="0"></iframe>
+                <iframe id="pdfViewer" frameborder="0" aria-label="PDF文档预览"></iframe>
             </div>
             <div class="modal-footer">
-                <a id="downloadPdf" class="download-btn" download>
+                <a id="downloadPdf" class="download-btn" download aria-label="下载PDF">
                     <i class="fas fa-download"></i> 下载PDF
                 </a>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
