@@ -2,10 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SkyChart Pro - 全球机场航图查看器，提供世界各地机场的详细航图信息">
-    <meta name="keywords" content="机场航图, 航空地图, 机场信息, SkyChart Pro">
-    <meta name="author" content="SkyChart Pro Team">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>SkyChart Pro - 全球机场航图查看器</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +15,7 @@
     
     <div class="container">
         <!-- 侧边栏 -->
-        <aside class="sidebar" aria-label="机场列表导航">
+        <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
                     <div class="logo-icon"><i class="fas fa-plane"></i></div>
@@ -43,15 +40,20 @@
         
         <!-- 主内容区域 -->
         <main class="main-content">
-            <header class="main-header">
+            <div class="main-header">
                 <h1 class="page-title">
                     <i class="fas fa-map"></i> 
                     <span id="currentAirport">全球机场航图查看器</span>
                 </h1>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="打开侧边栏">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </header>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="mobile-toggle" id="mobileToggle" aria-label="打开侧边栏">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
             
             <!-- PDF 文件区域 -->
             <section class="pdf-section fade-in">
@@ -85,6 +87,9 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="modal-loading">
+                    <div class="spinner"></div>
+                </div>
                 <iframe id="pdfViewer" frameborder="0" aria-label="PDF文档预览"></iframe>
             </div>
             <div class="modal-footer">
@@ -95,6 +100,6 @@
         </div>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
